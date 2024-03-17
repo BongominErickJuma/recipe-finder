@@ -1,0 +1,71 @@
+<%- include('partials/header.ejs') %>
+<div class="container">
+  <div class="pricing-header p-3 pb-md-4 mx-auto mt-5 text-center">
+    <h1 class="display-4 fw-normal text-success">Searched Recipes</h1>
+  </div>
+  <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+    <% if (recipeData && recipeData.length > 0) { %> <%
+    recipeData.forEach(recipe => { %>
+    <div class="col">
+      <div class="card mb-4 rounded-3 shadow-sm">
+        <div class="card-header py-3">
+          <h4 class="my-0 fw-normal"><%= recipe.title %></h4>
+        </div>
+        <div class="card-body">
+          <img src="<%= recipe.image %>" alt="<%= recipe.title %>" />
+          <a
+            href="/searched/<%= recipe.id %>"
+            class="btn btn-outline-success mt-5"
+            >View recipe</a
+          >
+        </div>
+      </div>
+    </div>
+    <% }) %> <% } else { %>
+    <div class="container">
+      <p>No recipes found matching your search query. Here are a few tips:</p>
+      <div
+        class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center"
+      >
+        <div class="list-group list-group-checkable d-grid gap-2 border-0">
+          <label
+            class="list-group-item rounded-3 py-3"
+            for="listGroupCheckableRadios1"
+          >
+            <span class="d-block small"
+              >Check your spelling and try again.</span
+            >
+          </label>
+          <label
+            class="list-group-item rounded-3 py-3"
+            for="listGroupCheckableRadios2"
+          >
+            <span class="d-block small">Try using more general keywords.</span>
+          </label>
+
+          <label
+            class="list-group-item rounded-3 py-3"
+            for="listGroupCheckableRadios3"
+          >
+            <span class="d-block small">
+              Ensure that the ingredients you're searching for are commonly used
+              in recipes.</span
+            >
+          </label>
+          <label
+            class="list-group-item rounded-3 py-3"
+            for="listGroupCheckableRadios4"
+          >
+            <span class="d-block small">
+              Explore our
+              <a href="/" class="text-success fw-bold">homepage</a> for random
+              recipes.</span
+            >
+          </label>
+        </div>
+      </div>
+    </div>
+    <% } %>
+  </div>
+</div>
+<%- include('partials/footer.ejs') %>
