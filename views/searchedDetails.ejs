@@ -1,39 +1,42 @@
 <%- include('partials/header.ejs') %>
 <div class="container">
-  <div class="container col-xxl-8 px-4 py-5">
+  <div class="container col-xxl-8 px-4 pt-5 mx-auto">
     <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-      <div class="col-10 col-sm-8 col-lg-6">
+      <div class="col-10 col-sm-8 mx-auto">
         <img
           src="<%= image %>"
-          class="d-block mx-lg-auto img-fluid"
+          class="d-block mx-lg-auto img-fluid rounded-4"
           alt="<%= title %>"
           width="700"
           height="500"
           loading="lazy"
         />
-      </div>
-      <div class="col-lg-6">
-        <h3 class="display-5 text-success mb-3"><%= title %></h3>
+
+        <h3 class="text-center fw-light text-success my-3"><%= title %></h3>
       </div>
     </div>
   </div>
-  <div class="row g-5" id="guides">
-    <div class="col-md-6">
-      <h3 class="text-body-emphasis">ingredients:</h3>
-      <ul>
-        <% ingredients.forEach(ingredient => { %>
-        <li><%= ingredient.original %></li>
-        <% }); %>
-      </ul>
+  <div class="row g-2 d-flex" id="guides">
+    <div class="col-md-4">
+      <div class="border p-2 h-100">
+        <h3 class="text-body-emphasis">ingredients:</h3>
+        <ul>
+          <% ingredients.forEach(ingredient => { %>
+          <li><%= ingredient.original %></li>
+          <% }); %>
+        </ul>
+      </div>
     </div>
 
-    <div class="col-md-6">
-      <h3 class="text-body-emphasis">Instructions:</h3>
-      <ol>
-        <% instructions.forEach(instruction => { %>
-        <li><%= instruction %></li>
-        <% }); %>
-      </ol>
+    <div class="col-md-8">
+      <div class="border p-2">
+        <h3 class="text-body-emphasis">Instructions:</h3>
+        <ol>
+          <% instructions.forEach(instruction => { %>
+          <li><%= instruction %></li>
+          <% }); %>
+        </ol>
+      </div>
     </div>
   </div>
 </div>
